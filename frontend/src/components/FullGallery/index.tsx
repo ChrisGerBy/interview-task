@@ -14,7 +14,7 @@ const FullGallery = ({ images }: IProps) => {
       {images.map((image, i) => (
         <li key={i} className={styles.image}>
           <img src={image.url} alt={image.title} width="300" height="300" />
-          <span>{image.title}</span>
+          <p className={styles.title}>{image.title}</p>
         </li>
       ))}
     </ul>
