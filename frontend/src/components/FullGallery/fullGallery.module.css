@@ -1,0 +1,11 @@
+.fullGallery {
+  width: 100vw;
+  overflow: auto;
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.image {
+  min-width: 300px;
+}
