@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 button {
   padding: 10px 20px;
   border-radius: 20px;
@@ -13,4 +17,14 @@ a:enabled:hover {
   background-color: #aeaeae;
   transition: ease 0.5s;
   cursor: pointer;
+}
+
+.App {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.App_carousel {
+  height: 100vh;
+  background-color: #2a2a2a;
 }

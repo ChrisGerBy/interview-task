@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { ReactComponent as ChevronLeft } from "src/assets/chevron-left.svg";
+import { ReactComponent as ChevronRight } from "src/assets/chevron-right.svg";
 import { ImageType } from "@types";
 
 import styles from "./carousel.module.css";
@@ -27,6 +29,28 @@ const Carousel = ({ images }: IProps) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.buttonsWithCarousel}>
+        <ChevronLeft
+          onClick={showPrevious}
+          className={`${styles.navButton} ${
+            currentIndex === 0 ? styles.navButtonDisabled : ""
+          }`}
+        />
+        <div className={styles.carousel}>
+          {images.map((image, i) => (
+            <div key={i} id={`${i}`} className={styles.image}>
+              <img src={image.url} alt={image.title} width="300" height="300" />
+              <span>{image.title}</span>
+            </div>
+          ))}
+        </div>
+        <ChevronRight
+          onClick={showNext}
+          className={`${styles.navButton} ${
+            currentIndex === images.length - 1 ? styles.navButtonDisabled : ""
+          }`}
+        />
+      </div>
       <div className={styles.navigation}>
         {images.map((_image, i) => (
           <a
@@ -37,23 +61,7 @@ const Carousel = ({ images }: IProps) => {
             }`}
             key={i}
             href={`#${i}`}
-          >
-            {i + 1}
-          </a>
-        ))}
-      </div>
-      <button onClick={showPrevious} disabled={currentIndex === 0}>
-        <span>{"<"}</span>
-      </button>
-      <button onClick={showNext} disabled={currentIndex === images.length - 1}>
-        <span>{">"}</span>
-      </button>
-      <div className={styles.carousel}>
-        {images.map((image, i) => (
-          <div key={i} id={`${i}`} className={styles.image}>
-            <img src={image.url} alt={image.title} width="300" height="300" />
-            <span>{image.title}</span>
-          </div>
+          ></a>
         ))}
       </div>
     </div>

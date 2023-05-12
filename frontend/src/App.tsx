@@ -46,7 +46,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App" data-testid="app">
+    <div
+      className={`App ${isCarousel ? "App_carousel" : ""}`}
+      data-testid="app"
+    >
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
